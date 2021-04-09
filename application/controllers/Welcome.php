@@ -48,7 +48,7 @@ class Welcome extends CI_Controller {
 			}
 	public function data(){
 
-		$user =$this->db->query('SELECT * FROM `users` INNER JOIN `posts` ON users.id = posts.user_id ORDER BY posts.count DESC')->result();
+		$user =$this->db->query('SELECT * FROM `users` INNER JOIN `posts` ON users.id = posts.user_id ORDER BY posts.count DESC, created_at DESC')->result();
 		  
 		header('Content-Type: application/json');
 		echo json_encode( $user );
