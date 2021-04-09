@@ -42,7 +42,7 @@ class Welcome extends CI_Controller {
 	}
 	public function users(){
 
-		$users=$this->db->query('SELECT * FROM `users`')->result();
+		$users=$this->db->query('SELECT * FROM `users`')->result(); 
 		header('Content-Type: application/json');
     	echo json_encode( $users );
 			}
