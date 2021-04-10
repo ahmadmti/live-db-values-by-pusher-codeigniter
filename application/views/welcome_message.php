@@ -41,12 +41,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin: 0 0 14px 0;
 		padding: 14px 15px 10px 15px;
 	}
+	tr {
+    background-color: white;
+    transition: background-color 1s;
+}
+
 	.down{
 		background:#ffc7ce;
+		 transition: background-color 1s;
 		color:#9c0006;
 	}
 	.up{
 		background:#c6efce;
+		 transition: background-color 1s;
 		color:#006100;
 	}
 	.card-title{
@@ -195,7 +202,7 @@ var removeClass = function() {
 
         if (!executed) {
             executed = true;
-			console.log('woi')
+			
             $(`tr`).removeClass('up');
 			$(`tr`).removeClass('down');
         }
@@ -216,7 +223,7 @@ var removeClass = function() {
 		
 		row =$('#table_body').find('tr').eq(index);
 		
-		console.log(row.attr('id'),user.id);
+		
 		var tr_id= row.attr('id');
 		if(tr_id != user.id){
 		
@@ -234,7 +241,7 @@ var removeClass = function() {
 								<td>${user.count}</td>
 								
 							</tr>`);
-				
+					
 		
 		}else{
 		let	td=	$(`#${user.id}`).find("td:eq(2)");
@@ -245,6 +252,11 @@ var removeClass = function() {
 	
 			});
 
+	setTimeout(() => {
+		 $(`tr`).removeClass('up');
+			$(`tr`).removeClass('down');
+	}, 5000);
+//  $(".up").delay(1500).fadeOut("slow");
 			data.user.forEach(function(user,index){
 				ranks['user_'+user.id] = index+1; });
 				executed=false;
